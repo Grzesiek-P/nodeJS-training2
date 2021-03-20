@@ -13,12 +13,17 @@ console.log(`Setting timer for ${waitTime / 1000} seconds with ${intervalTime / 
 
 const timerFinished = () => {
     clearInterval(interval);
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
     console.log('done');
 };
 
 const incrTime = () => {
     currentTime += intervalTime;
-    console.log(`Waiting ${currentTime / 1000} seconds.`);
+    const p = Math.floor((currentTime / waitTime) * 100);
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+    process.stdout.write(`Waiting ... ${p}%`);
 }
 
 const interval = setInterval(incrTime, intervalTime);
