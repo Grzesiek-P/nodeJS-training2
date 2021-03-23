@@ -1,5 +1,5 @@
 const path = require('path');
-//works like import staticin java
+//works like import static in java
 const { log } = require('util');
 const v8 = require('v8');
 
